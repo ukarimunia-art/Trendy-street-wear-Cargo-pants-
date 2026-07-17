@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Edit — Cargo Pants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F6F1E7;
+    --wine: #4A1425;
+    --wine-soft: #6B2A3F;
+    --rose: #C98FA1;
+    --rose-pale: #EFDCE1;
+    --gold: #B08A4E;
+    --ink: #2B2420;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  header {
+    padding: 4.5rem 1.5rem 2.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(74,20,37,0.15);
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
+    color: var(--wine);
+    margin: 0.5rem 0 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--wine-soft);
+    max-width: 32rem;
+    margin: 0 auto 1.25rem;
+  }
+
+  .disclosure {
+    font-size: 0.75rem;
+    color: var(--ink);
+    opacity: 0.6;
+    max-width: 30rem;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2.75rem 2rem;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .no {
+    font-family: 'Fraunces', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+  }
+
+  .thumb {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--rose-pale);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--wine);
+    margin-bottom: 0.15rem;
+  }
+
+  .brand {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--rose);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+
+  .price {
+    font-size: 0.85rem;
+    color: var(--ink);
+    opacity: 0.65;
+    margin-bottom: 0.6rem;
+  }
+
+  .note {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    color: var(--wine-soft);
+    line-height: 1.3;
+    transform: rotate(-1deg);
+    margin-bottom: 1rem;
+  }
+
+  .buy {
+    align-self: flex-start;
+    margin-top: auto;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--wine);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: opacity 0.15s ease;
+  }
+
+  .buy:hover { opacity: 0.6; }
+
+  .add-slot {
+    border: 1px dashed rgba(74,20,37,0.3);
+    border-radius: 4px;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--wine-soft);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    padding: 1.5rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    font-size: 0.8rem;
+    color: var(--wine-soft);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 480px) {
+    header { padding: 3rem 1.25rem 2rem; }
+    main { padding: 2.5rem 1.25rem 3.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">A slowly growing list</div>
+  <h1>The Edit</h1>
+  <p class="tagline">Cargo pants worth the pocket space — the ones I'd actually wear.</p>
+  <p class="disclosure">As an Amazon Associate I earn from qualifying purchases. This page contains affiliate links, meaning I may earn a small commission at no extra cost to you if you shop through them.</p>
+</header>
+
+<main>
+  <div class="grid" id="product-grid"></div>
+</main>
+
+<footer>Updated as I find things worth sharing.</footer>
+
+<script>
+  /* ============================================================
+     ADD YOUR PRODUCTS HERE.
+     Copy a block, paste it below the last one, and fill it in.
+     - image: any image URL (or leave blank for a placeholder)
+     - link: your affiliate link
+     - note: your own one-line take on it
+  ============================================================ */
+  const products = [
+    {
+      name: "The Everyday Jogger",
+      brand: "Libin",
+      price: "$35.98",
+      image: "pants_1.jpg",
+      link: "https://amzn.to/4gCG8B4",
+      note: "Cinched cuffs, real pockets, dressed-down comfort."
+    },
+    {
+      name: "The Weekend Utility Pant",
+      brand: "AKARMY",
+      price: "$38.59",
+      image: "pants_2.jpg",
+      link: "https://amzn.to/4pJWQBb",
+      note: "Blue-gray, belted, built for actually doing things."
+    },
+    {
+      name: "The Camo Statement",
+      brand: "AKHIKING",
+      price: "$39.99",
+      image: "pants_3.jpg",
+      link: "https://amzn.to/4pr4a4o",
+      note: "8 pockets. Zero subtlety. Love that for it."
+    },
+    {
+      name: "The Classic Khaki Cargo",
+      brand: "Alfiudad",
+      price: "$35.68",
+      image: "pants_4.jpg",
+      link: "https://amzn.to/4w3ttfb",
+      note: "The one that goes with literally everything."
+    },
+    {
+      name: "The Hike-Anywhere Pant",
+      brand: "baleaf",
+      price: "$29.99",
+      image: "pants_5.jpg",
+      link: "https://amzn.to/4vveOIF",
+      note: "Water-resistant, elastic waist, quietly does it all."
+    },
+    {
+      name: "The Cropped Neutral",
+      brand: "Lee",
+      price: "$24.90",
+      image: "pants_6.jpg",
+      link: "https://amzn.to/4wEZZnK",
+      note: "Frost gray capri, my go-to for warm days."
+    },
+    {
+      name: "The Breezy Capri",
+      brand: "MoFiz",
+      price: "$37.99",
+      image: "pants_7.jpg",
+      link: "https://amzn.to/3T5wBZA",
+      note: "Army green, tie-ankle, made for travel days."
+    },
+    {
+      name: "The All-Weather Black Cargo",
+      brand: "Rdruko",
+      price: "$28.49",
+      image: "pants_8.jpg",
+      link: "https://amzn.to/4hgpUh8",
+      note: "UPF 50+, zipper pockets, my hiking staple."
+    }
+  ];
+
+  const grid = document.getElementById('product-grid');
+
+  products.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const num = String(i + 1).padStart(2, '0');
+    card.innerHTML = `
+      <div class="no">No. ${num}</div>
+      <div class="thumb">
+        ${p.image
+          ? `<img src="${p.image}" alt="${p.name}">`
+          : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#8a5d6c;font-family:'Fraunces',serif;font-style:italic;font-size:0.85rem;">add a photo</div>`}
+      </div>
+      <div class="brand">${p.brand}</div>
+      <h2>${p.name}</h2>
+      <div class="price">${p.price}</div>
+      <p class="note">"${p.note}"</p>
+      <a class="buy" href="${p.link}" target="_blank" rel="noopener sponsored">Shop this →</a>
+    `;
+    grid.appendChild(card);
+  });
+
+  const addSlot = document.createElement('div');
+  addSlot.className = 'add-slot';
+  addSlot.textContent = 'more to come';
+  grid.appendChild(addSlot);
+</script>
+
+</body>
+</html>
